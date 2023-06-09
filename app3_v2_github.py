@@ -80,7 +80,10 @@ def main():
 	# assessment button
 	if st.button("Predict"):
 		assessment = prediction(int_rate, emp_length, annual_inc*1000, delinq_2yrs, fico_range_high,revol_bal*1000, open_acc)
-		st.success('**System assessment says:** {}'.format(assessment))
+		if assessment == 'Rejected':
+			st.error('**System assessment says:** {}'.format(assessment))
+		else:
+			st.success('**System assessment says:** {}'.format(assessment))
 
 	# if st.button("Reset"):
 	# 	pyautogui.hotkey("ctrl","F5")
